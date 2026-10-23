@@ -1,0 +1,35 @@
+{
+  "name": "notify-kit",
+  "version": "0.1.0",
+  "description": "Copy-in notification kit: in-app inbox, email (SMTP), optional AI copy, preferences and unsubscribe, backed by your own Supabase.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./react": "./src/react.js"
+  },
+  "files": ["src", "supabase", "examples", "README.md", "SECURITY.md", "RELEASE_NOTES.md", ".env.example"],
+  "engines": { "node": ">=20.6" },
+  "scripts": {
+    "check:syntax": "node scripts/check-syntax.mjs",
+    "test": "node --test test/*.test.js",
+    "check": "npm run check:syntax && npm test",
+    "smoke": "node --env-file=.env scripts/smoke.mjs",
+    "example": "node --env-file=.env examples/express-server.js"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "nodemailer": "^6.9.0 || ^7.0.0",
+    "react": "^18 || ^19"
+  },
+  "peerDependenciesMeta": {
+    "@supabase/supabase-js": { "optional": true },
+    "nodemailer": { "optional": true },
+    "react": { "optional": true }
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
